@@ -18,13 +18,13 @@ appointmentsRouter.post('/', (req, res) => {
   try {
     const { provider, date } = req.body;
 
-  const parsedDate = parseISO(date);
+    const parsedDate = parseISO(date);
 
-  const createAppointment = new CreateAppointmentService(appointmentRepository);
+    const createAppointment = new CreateAppointmentService(appointmentRepository);
 
-  const appointment = createAppointment.execute({ date: parsedDate, provider });
+    const appointment = createAppointment.execute({ date: parsedDate, provider });
 
-  return res.json(appointment);
+    return res.json(appointment);
   } catch (err) {
     return res
     .status(400)
